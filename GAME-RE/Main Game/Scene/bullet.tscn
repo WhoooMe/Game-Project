@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://cixmg6sw6lj0y"]
+
+[ext_resource type="Script" uid="uid://b8hvl42ego778" path="res://Scripts/Bullets/bullet.gd" id="1_145i1"]
+[ext_resource type="Texture2D" uid="uid://cg8kk3833rjlk" path="res://src/Sprites/Player/Bullet/weapon_peashot_main_0001.png" id="2_pf58l"]
+[ext_resource type="Texture2D" uid="uid://c4cg3vfva576d" path="res://src/Sprites/Player/Bullet/weapon_peashot_main_0002.png" id="3_4smue"]
+[ext_resource type="Texture2D" uid="uid://dr457x1ugbkis" path="res://src/Sprites/Player/Bullet/weapon_peashot_main_0003.png" id="4_g66oo"]
+[ext_resource type="Texture2D" uid="uid://c1q20cxqwhewl" path="res://src/Sprites/Player/Bullet/weapon_peashot_main_0004.png" id="5_ed7he"]
+[ext_resource type="Texture2D" uid="uid://dsh8oukh7741n" path="res://src/Sprites/Player/Bullet/weapon_peashot_main_0005.png" id="6_bn5pj"]
+[ext_resource type="Texture2D" uid="uid://bbkdpd1j784le" path="res://src/Sprites/Player/Bullet/weapon_peashot_main_0006.png" id="7_q356l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_36qlx"]
+radius = 4.499998
+height = 54.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjtj3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pf58l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4smue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g66oo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ed7he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bn5pj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q356l")
+}],
+"loop": true,
+"name": &"FLY",
+"speed": 9.0
+}]
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 37
+script = ExtResource("1_145i1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(6, 0)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_36qlx")
+
+[node name="AnimateBullets" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7.4375033, -0.31249928)
+scale = Vector2(0.61, 0.687)
+sprite_frames = SubResource("SpriteFrames_vjtj3")
+animation = &"FLY"
+frame_progress = 0.831613
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-3, -5)
+rect = Rect2(-10, 1, 45, 9)
