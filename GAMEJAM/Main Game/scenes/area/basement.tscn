@@ -1,0 +1,278 @@
+[gd_scene format=3 uid="uid://wvrbkq17q32i"]
+
+[ext_resource type="Texture2D" uid="uid://c6va06fgo6m6r" path="res://assets/background/BaseMent-BG-Rill.png" id="1_pksbs"]
+[ext_resource type="Texture2D" uid="uid://cbx2huqc673oq" path="res://assets/interior/Basement.png" id="2_hlpnm"]
+[ext_resource type="Script" uid="uid://cdvi6vhyh6x8j" path="res://scripts/interior/stairs.gd" id="3_1irmt"]
+[ext_resource type="PackedScene" uid="uid://dfv81o6ccfwxy" path="res://scenes/player.tscn" id="3_vd1ub"]
+[ext_resource type="Script" uid="uid://bfviqapwa0mw4" path="res://scripts/player/player.gd" id="4_lb28k"]
+[ext_resource type="Texture2D" uid="uid://c6mp0mgxb54vk" path="res://assets/background/Stairs.png" id="4_s2fia"]
+[ext_resource type="PackedScene" uid="uid://15dcrow3q255" path="res://scenes/area/brankas.tscn" id="5_c4vks"]
+[ext_resource type="PackedScene" uid="uid://cr2alui57bw3i" path="res://scenes/area/MainMenu.tscn" id="6_ad15l"]
+[ext_resource type="PackedScene" uid="uid://1jbwtax6ues1" path="res://scenes/mother.tscn" id="6_w0xfl"]
+[ext_resource type="Script" uid="uid://craiyy0if78rj" path="res://scripts/player/mother.gd" id="7_qitlo"]
+[ext_resource type="PackedScene" uid="uid://ci1vqq2ckt0wk" path="res://scenes/ui.tscn" id="8_1irmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2fia"]
+size = Vector2(2922, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lby1"]
+size = Vector2(10, 864)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vd1ub"]
+size = Vector2(224, 448)
+
+[node name="Basement" type="Node2D" unique_id=261277245]
+
+[node name="World" type="Node2D" parent="." unique_id=1923331156]
+
+[node name="Background" type="Node2D" parent="World" unique_id=604176892]
+
+[node name="Background-Basement" type="Sprite2D" parent="World/Background" unique_id=1952599946]
+position = Vector2(255, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pksbs")
+
+[node name="World_Boundaries" type="Node2D" parent="World" unique_id=27366471]
+position = Vector2(0, -40)
+
+[node name="Floor" type="StaticBody2D" parent="World/World_Boundaries" unique_id=132327673]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/World_Boundaries/Floor" unique_id=771375976]
+position = Vector2(-161, -110)
+shape = SubResource("RectangleShape2D_s2fia")
+
+[node name="Wall_Left" type="StaticBody2D" parent="World/World_Boundaries" unique_id=1058169825]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/World_Boundaries/Wall_Left" unique_id=1320224611]
+position = Vector2(-1350, -349)
+shape = SubResource("RectangleShape2D_5lby1")
+
+[node name="Wall_Right" type="StaticBody2D" parent="World/World_Boundaries" unique_id=1101898930]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/World_Boundaries/Wall_Right" unique_id=1116234116]
+position = Vector2(580, -322)
+shape = SubResource("RectangleShape2D_5lby1")
+
+[node name="Interiors" type="Node2D" parent="World" unique_id=1219616208]
+
+[node name="Mesin Cuci" type="Sprite2D" parent="World/Interiors" unique_id=1594197279]
+position = Vector2(1111, 122)
+scale = Vector2(0.3046875, 0.3305664)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(2048, 0, 1024, 1024)
+
+[node name="Barrel" type="Sprite2D" parent="World/Interiors" unique_id=628838961]
+position = Vector2(260.00003, 141)
+scale = Vector2(0.27935794, 0.29232785)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(0, 4095, 1024, 1024)
+
+[node name="Kardus-1" type="Sprite2D" parent="World/Interiors" unique_id=1580887049]
+position = Vector2(489.00003, 175)
+scale = Vector2(0.20172122, 0.215271)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(3072, 0, 1024, 1024)
+
+[node name="Kardus-2" type="Sprite2D" parent="World/Interiors" unique_id=1894830660]
+position = Vector2(490.00003, 119.00001)
+scale = Vector2(0.22265637, 0.17895508)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(0, 1024, 1024, 1024)
+
+[node name="Kardus-3" type="Sprite2D" parent="World/Interiors" unique_id=1324967330]
+position = Vector2(548.5, 178)
+scale = Vector2(0.23730472, 0.19531249)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(0, 1024, 1024, 1024)
+
+[node name="Rak" type="Sprite2D" parent="World/Interiors" unique_id=1093086811]
+position = Vector2(-245.49998, 57.437515)
+scale = Vector2(0.26464844, 0.30749515)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(3072, 3072, 1024, 1024)
+
+[node name="Meteran Listrik" type="Sprite2D" parent="World/Interiors" unique_id=2052859341]
+position = Vector2(378, -2.0000153)
+scale = Vector2(0.22753906, 0.19921875)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(1024, 4096, 1024, 1024)
+
+[node name="Batang1" type="Sprite2D" parent="World/Interiors" unique_id=260075913]
+position = Vector2(378, -129)
+scale = Vector2(0.22753906, 0.19921875)
+texture = ExtResource("2_hlpnm")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(1024, 4096, 1024, 256)
+
+[node name="Batang2" type="Sprite2D" parent="World/Interiors" unique_id=129152749]
+position = Vector2(378, -179)
+scale = Vector2(0.22753906, 0.19921875)
+texture = ExtResource("2_hlpnm")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(1024, 4096, 1024, 256)
+
+[node name="Batang3" type="Sprite2D" parent="World/Interiors" unique_id=1937950883]
+position = Vector2(378, -222.98535)
+scale = Vector2(0.22753906, 0.21010652)
+texture = ExtResource("2_hlpnm")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(1024, 4170.7, 1024, 181.2998)
+
+[node name="Meja" type="Sprite2D" parent="World/Interiors" unique_id=856930012]
+position = Vector2(-524, 142.00002)
+scale = Vector2(0.32910156, 0.3369141)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(3072, 1024, 1024, 1024)
+
+[node name="Pegboard" type="Sprite2D" parent="World/Interiors" unique_id=288144271]
+position = Vector2(-521, -1.999999)
+scale = Vector2(0.2176209, 0.1923523)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(0, 2048, 1024, 1024)
+
+[node name="Pipe-L" type="Sprite2D" parent="World/Interiors" unique_id=864540949]
+position = Vector2(876, -18)
+scale = Vector2(0.1987305, 0.23535155)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(2048, 3072, 1024, 1024)
+
+[node name="Pipe-Lurus1" type="Sprite2D" parent="World/Interiors" unique_id=1788567660]
+position = Vector2(860.25, -183.50002)
+scale = Vector2(0.1987305, 0.23535155)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(2048, 2048, 1024, 1024)
+
+[node name="Pip-Lurus2" type="Sprite2D" parent="World/Interiors" unique_id=2009933045]
+position = Vector2(857, -90.000015)
+scale = Vector2(0.19726568, 0.19775389)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(3072, 2048, 1024, 1024)
+
+[node name="Pipe-Lurus3" type="Sprite2D" parent="World/Interiors" unique_id=245305956]
+position = Vector2(953.99994, -1.5550954)
+rotation = -1.5707964
+scale = Vector2(0.20304374, 0.23535155)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(2048, 2048, 1024, 1024)
+
+[node name="Pipe-Lurus4" type="Sprite2D" parent="World/Interiors" unique_id=599740457]
+position = Vector2(1056, -1.9999999)
+rotation = -1.5707964
+scale = Vector2(0.20304374, 0.23535155)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(2048, 2048, 1024, 1024)
+
+[node name="Pipe-Lurus5" type="Sprite2D" parent="World/Interiors" unique_id=1919519307]
+position = Vector2(1158.0001, -2)
+rotation = -1.5707964
+scale = Vector2(0.20304374, 0.23535155)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(2048, 2048, 1024, 1024)
+
+[node name="Lamp" type="Sprite2D" parent="World/Interiors" unique_id=1749294575]
+z_index = 1
+position = Vector2(48, -205.00002)
+scale = Vector2(0.11376957, 0.124023445)
+texture = ExtResource("2_hlpnm")
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[node name="Interactables" type="Node2D" parent="." unique_id=1952652679]
+
+[node name="stairs-area" type="Area2D" parent="Interactables" unique_id=1684299173 node_paths=PackedStringArray("ui_node", "sprite")]
+disable_mode = 2
+script = ExtResource("3_1irmt")
+ui_node = NodePath("../../UI")
+sprite = NodePath("Stairs")
+target_pos = Vector2(-2184, 205)
+x_batas_kiri = -88.0
+x_batas_kanan = 134.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactables/stairs-area" unique_id=59675713]
+z_index = 1
+position = Vector2(23, -18)
+shape = SubResource("RectangleShape2D_vd1ub")
+
+[node name="Stairs" type="Sprite2D" parent="Interactables/stairs-area" unique_id=517712155]
+position = Vector2(23.000015, -18.749983)
+scale = Vector2(0.80125, 0.7961111)
+texture = ExtResource("4_s2fia")
+
+[node name="Brankas" parent="Interactables" unique_id=2129200525 node_paths=PackedStringArray("ui_node") instance=ExtResource("5_c4vks")]
+position = Vector2(797, 156)
+correct_code = "300126"
+ui_node = NodePath("../../UI")
+main_menu_scene = ExtResource("6_ad15l")
+
+[node name="Mother" parent="." unique_id=440359589 node_paths=PackedStringArray("ui_node") instance=ExtResource("6_w0xfl")]
+position = Vector2(-422.40002, 243.00002)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("7_qitlo")
+chase_speed = 200.0
+notice_duration = 3.0
+ui_node = NodePath("../UI")
+
+[node name="Player" parent="." unique_id=742398070 node_paths=PackedStringArray("ui_node") groups=["Player"] instance=ExtResource("3_vd1ub")]
+position = Vector2(-333.00003, 206.00002)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("4_lb28k")
+ui_node = NodePath("../UI")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2021783533]
+position = Vector2(0, -1039.9999)
+scale = Vector2(4.9999995, 4.9999995)
+limit_left = -708
+limit_top = 0
+limit_right = 1200
+limit_bottom = 0
+position_smoothing_enabled = true
+
+[node name="Shadow" type="Control" parent="." unique_id=1814080132]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -18.0
+offset_top = -20.0
+offset_right = 22.0
+offset_bottom = 20.0
+
+[node name="Dark" type="ColorRect" parent="Shadow" unique_id=1750858897]
+layout_mode = 0
+offset_left = -697.0
+offset_top = -500.0
+offset_right = 1232.0
+offset_bottom = 476.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5647059)
+
+[node name="LampLight" type="ColorRect" parent="Shadow" unique_id=541750186]
+layout_mode = 0
+offset_left = 65.00001
+offset_top = -152.0
+offset_right = 1260.4761
+offset_bottom = 864.12585
+rotation = 0.7853982
+mouse_filter = 2
+color = Color(1, 1, 1, 0.10980392)
+
+[node name="UI" parent="." unique_id=1470543014 instance=ExtResource("8_1irmt")]

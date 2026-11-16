@@ -1,0 +1,246 @@
+[gd_scene format=3 uid="uid://dv7qy7g7h34a2"]
+
+[ext_resource type="PackedScene" uid="uid://dfv81o6ccfwxy" path="res://scenes/player.tscn" id="1_c3u0e"]
+[ext_resource type="Script" uid="uid://bfviqapwa0mw4" path="res://scripts/player/player.gd" id="2_82n0d"]
+[ext_resource type="Texture2D" uid="uid://c1nxuatwxd4mb" path="res://assets/interior/KAMAR_ORANG_TUAM_ASSET_UTAMA.png" id="2_m45qd"]
+[ext_resource type="Texture2D" uid="uid://1vgvvel2gwr4" path="res://assets/background/background_parents.png" id="3_m45qd"]
+[ext_resource type="Texture2D" uid="uid://umck328p3bad" path="res://assets/interior/bedroom.png" id="3_wa058"]
+[ext_resource type="AudioStream" uid="uid://3uxgdole6tbr" path="res://assets/All-Sound/Sound-Parent-Room/CLOCK SOUND.wav" id="4_hh1kk"]
+[ext_resource type="Script" uid="uid://dc8l7fgcxixjd" path="res://scripts/interior/interactable_object.gd" id="5_hh1kk"]
+[ext_resource type="Script" uid="uid://d0ikouynofaim" path="res://scripts/interior/parents_inside_door.gd" id="7_hh1kk"]
+[ext_resource type="Script" uid="uid://hlhjwh1m4an4" path="res://scripts/interior/wardrobe.gd" id="8_sqprf"]
+[ext_resource type="PackedScene" uid="uid://1jbwtax6ues1" path="res://scenes/mother.tscn" id="9_sqprf"]
+[ext_resource type="Script" uid="uid://craiyy0if78rj" path="res://scripts/player/mother.gd" id="10_hh1kk"]
+[ext_resource type="FontFile" uid="uid://copw1ojxa4anc" path="res://assets/fonts/IndieFlower-Regular.ttf" id="11_sqprf"]
+[ext_resource type="PackedScene" uid="uid://ci1vqq2ckt0wk" path="res://scenes/ui.tscn" id="13_hh1kk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m45qd"]
+size = Vector2(2922, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa058"]
+size = Vector2(10, 864)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llfqi"]
+size = Vector2(97, 325)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipscb"]
+size = Vector2(51, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f8kt"]
+size = Vector2(3.8338466, 2.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nal78"]
+size = Vector2(1.1696435, 14.800003)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh1kk"]
+size = Vector2(26, 296)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk27n"]
+size = Vector2(195.25, 327.25)
+
+[node name="Parents Room" type="Node2D" unique_id=1736646000]
+
+[node name="World" type="Node2D" parent="." unique_id=1216588089]
+
+[node name="Background" type="Node2D" parent="World" unique_id=1057429778]
+
+[node name="BackgroundParents" type="Sprite2D" parent="World/Background" unique_id=2087338927]
+position = Vector2(248, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_m45qd")
+
+[node name="World_Boundaries" type="Node2D" parent="World" unique_id=1781237223]
+position = Vector2(0, -40)
+
+[node name="Floor" type="StaticBody2D" parent="World/World_Boundaries" unique_id=1265727608]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/World_Boundaries/Floor" unique_id=521922535]
+position = Vector2(-329, -112)
+shape = SubResource("RectangleShape2D_m45qd")
+
+[node name="Wall_Left" type="StaticBody2D" parent="World/World_Boundaries" unique_id=640033801]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/World_Boundaries/Wall_Left" unique_id=664942740]
+z_index = 11
+position = Vector2(-1334, -320)
+shape = SubResource("RectangleShape2D_wa058")
+
+[node name="Wall_Right" type="StaticBody2D" parent="World/World_Boundaries" unique_id=734447457]
+position = Vector2(640, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/World_Boundaries/Wall_Right" unique_id=273285887]
+position = Vector2(563, -392)
+shape = SubResource("RectangleShape2D_wa058")
+
+[node name="Interior" type="Node2D" parent="World" unique_id=1285183544]
+
+[node name="dressing table" type="Sprite2D" parent="World/Interior" unique_id=1232905116]
+position = Vector2(235, 80)
+scale = Vector2(0.31201175, 0.27685547)
+texture = ExtResource("2_m45qd")
+region_enabled = true
+region_rect = Rect2(2048, 1024, 1024, 1024)
+
+[node name="Interactable" type="Node2D" parent="." unique_id=869831244]
+
+[node name="Clock" type="Area2D" parent="Interactable" unique_id=1697482437 node_paths=PackedStringArray("ui_node", "sprite", "sound_player") groups=["NoiseSource"]]
+position = Vector2(488, 31)
+script = ExtResource("5_hh1kk")
+ui_node = NodePath("../../UI")
+interaction_type = 2
+sprite = NodePath("Sprite2D")
+region_closed = Rect2(0, 0, 1024, 1024)
+region_open_full = Rect2(0, 0, 1024, 1024)
+region_open_empty = Rect2(0, 0, 1024, 1024)
+overlay_rect = Rect2(0, 0, 1024, 1024)
+sound_player = NodePath("Sound")
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable/Clock" unique_id=2002856412]
+scale = Vector2(0.39013672, 0.4003906)
+texture = ExtResource("2_m45qd")
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Clock" unique_id=1938182083]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_llfqi")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="Interactable/Clock" unique_id=1156337139]
+stream = ExtResource("4_hh1kk")
+volume_db = 5.0
+max_distance = 10000.0
+
+[node name="Drawer" type="Area2D" parent="Interactable" unique_id=747534068 node_paths=PackedStringArray("ui_node", "sprite")]
+position = Vector2(1067, 119)
+script = ExtResource("5_hh1kk")
+ui_node = NodePath("../../UI")
+interaction_type = 1
+sprite = NodePath("Sprite2D")
+interaction_dist = 128.0
+region_open_full = Rect2(0, 1024, 1024, 1024)
+overlay_rect = Rect2(1024, 1024, 1024, 1024)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable/Drawer" unique_id=44999403]
+scale = Vector2(0.31762695, 0.30639648)
+texture = ExtResource("2_m45qd")
+region_enabled = true
+region_rect = Rect2(0, 1024, 1024, 1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Drawer" unique_id=1664800186]
+position = Vector2(3, -47)
+shape = SubResource("RectangleShape2D_ipscb")
+
+[node name="Bed" type="Area2D" parent="Interactable" unique_id=1234109015 node_paths=PackedStringArray("ui_node", "sprite")]
+position = Vector2(707, 103)
+script = ExtResource("5_hh1kk")
+ui_node = NodePath("../../UI")
+sprite = NodePath("Sprite2D")
+can_close_again = false
+interaction_dist = 120.0
+nama_item = "Kunci Basement"
+region_closed = Rect2(2048, 2048, 1024, 1024)
+region_open_full = Rect2(0, 3072, 1024, 1024)
+region_open_empty = Rect2(1024, 3072, 1024, 1024)
+overlay_rect = Rect2(2048, 3072, 1024, 1024)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable/Bed" unique_id=1153100200]
+position = Vector2(62, -53)
+scale = Vector2(0.46752936, 0.4683838)
+texture = ExtResource("2_m45qd")
+region_enabled = true
+region_rect = Rect2(2048, 2048, 1024, 1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Bed" unique_id=322075454]
+position = Vector2(1, 1.5258789e-05)
+rotation = 0.36651918
+scale = Vector2(19.999992, 19.999992)
+shape = SubResource("RectangleShape2D_4f8kt")
+
+[node name="Parents_Inside_Door" type="Area2D" parent="Interactable" unique_id=1223588659 node_paths=PackedStringArray("ui_node", "sprite")]
+position = Vector2(-696, 61)
+script = ExtResource("7_hh1kk")
+ui_node = NodePath("../../UI")
+sprite = NodePath("Sprite2D")
+region_closed = Rect2(2048, 2048, 1024, 1024)
+region_open = Rect2(3072, 2048, 1024, 1024)
+scene_tujuan = "uid://chypsekmc632t"
+spawn_pos_tujuan = Vector2(1248, 205)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable/Parents_Inside_Door" unique_id=410188384]
+z_index = 1
+scale = Vector2(0.3217773, 0.32910156)
+texture = ExtResource("3_wa058")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(3072, 2048, 1024, 1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Parents_Inside_Door" unique_id=1023314995]
+z_index = 1
+position = Vector2(-4.6964417, 0)
+scale = Vector2(19.999994, 19.999994)
+shape = SubResource("RectangleShape2D_nal78")
+
+[node name="ExitTrigger" type="Area2D" parent="Interactable/Parents_Inside_Door" unique_id=1243376221]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Parents_Inside_Door/ExitTrigger" unique_id=925044167]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_hh1kk")
+
+[node name="Wardrobe" type="Area2D" parent="Interactable" unique_id=1862544635 node_paths=PackedStringArray("ui_node", "sprite")]
+position = Vector2(-182, 67)
+script = ExtResource("8_sqprf")
+ui_node = NodePath("../../UI")
+sprite = NodePath("Sprite2D")
+region_closed = Rect2(0, 2048, 1024, 1024)
+region_open = Rect2(1024, 2048, 1024, 1024)
+region_hidden = Rect2(0, 2048, 1024, 1024)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable/Wardrobe" unique_id=92109340]
+scale = Vector2(0.33374023, 0.41894528)
+texture = ExtResource("2_m45qd")
+region_enabled = true
+region_rect = Rect2(0, 2048, 1024, 1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable/Wardrobe" unique_id=1875807578]
+z_index = 1
+position = Vector2(4.375, -15.625)
+shape = SubResource("RectangleShape2D_nk27n")
+
+[node name="Label2D" type="Label" parent="Interactable/Wardrobe" unique_id=1858907995]
+offset_left = 128.0
+offset_top = -744.0
+offset_right = 335.0
+offset_bottom = -711.0
+theme_override_fonts/font = ExtResource("11_sqprf")
+theme_override_font_sizes/font_size = 22
+text = "Klik untuk bersembunyi"
+
+[node name="Mother" parent="." unique_id=440359589 node_paths=PackedStringArray("ui_node") instance=ExtResource("9_sqprf")]
+position = Vector2(1032, 192)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("10_hh1kk")
+chase_speed = 200.0
+notice_duration = 3.0
+ui_node = NodePath("../UI")
+
+[node name="Player" parent="." unique_id=1407380519 node_paths=PackedStringArray("ui_node") groups=["Player"] instance=ExtResource("1_c3u0e")]
+position = Vector2(-521.00006, 204.00002)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("2_82n0d")
+ui_node = NodePath("../UI")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=773368657]
+position = Vector2(0, -1039.9999)
+scale = Vector2(4.9999995, 4.9999995)
+limit_left = -708
+limit_top = 0
+limit_right = 1198
+limit_bottom = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="UI" parent="." unique_id=1470543014 instance=ExtResource("13_hh1kk")]
+
+[connection signal="body_entered" from="Interactable/Parents_Inside_Door/ExitTrigger" to="Interactable/Parents_Inside_Door" method="_on_exit_trigger_body_entered"]
